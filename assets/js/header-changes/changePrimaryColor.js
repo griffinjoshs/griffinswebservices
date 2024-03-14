@@ -1,4 +1,5 @@
 // changePrimaryColor.js
+
 const originalPrimaryColor = getComputedStyle(
   document.documentElement
 ).getPropertyValue("--primary-color");
@@ -26,7 +27,10 @@ function updateThemeColors(newPrimaryColor, isReset = false) {
 
   Object.keys(propertiesToUpdate).forEach((key) => {
     document.documentElement.style.setProperty(key, propertiesToUpdate[key]);
+    // Force repaint on the root element after changing each property
+    forceRepaint(document.documentElement);
   });
+
 
   if (!isReset) {
     setCookie("userColorPreference", newPrimaryColor, 1);
@@ -216,3 +220,7 @@ document
   .addEventListener("change", function () {
     toggleTheme(this.checked);
   });
+
+function forceRepaint(element) {
+  element.offsetHeight; // Reading this property will trigger a repaint
+}
