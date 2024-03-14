@@ -31,8 +31,8 @@ body {
     padding-bottom: 5px;
   }
 
-  .hero-section {
-    height: 100vh;
+  .hero-wrap {
+    height: 100%;
     margin-top: -12vh;
   }
 }
@@ -55,13 +55,28 @@ body {
     padding-bottom: 50px !important;
   }
 
-  .hero-section {
-    height: 95vh;
+  .hero-wrap {
+    height: 90%;
     margin-top: -10vh;
   }
 }
 
 .hero-section {
+  display: flex; /* Makes the section a flex container */
+  flex-direction: column; /* Stacks the content vertically */
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* margin-top: -12vh; */
+  /* flex-basis: va
+  r(--section-flex-basis-15); */
+}
+
+.hero-wrap {
   display: flex; /* Makes the section a flex container */
   flex-direction: column; /* Stacks the content vertically */
   justify-content: space-between;
@@ -70,8 +85,6 @@ body {
   padding: 0;
   position: relative;
   width: 100%;
-  /* flex-basis: va
-  r(--section-flex-basis-15); */
 }
 
 .hero-section-content {
