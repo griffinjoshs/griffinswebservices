@@ -18,7 +18,7 @@
   --primary-font-size: calc(0.5rem + 2vmin);
   --accent-font-size: calc(0.8rem + 0.4vw);
   --hero-font-size: calc(
-    2.5rem + 4vw
+    3.5rem + 4vw
   ); /* Smaller base size and slower growth on small screens */
   --hero-p-font-size: calc(0.5rem + 0.5vw);
   --paragraph-font-size: calc(0.5rem + 0.3vmin);
