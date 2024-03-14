@@ -31,7 +31,6 @@ function updateThemeColors(newPrimaryColor, isReset = false) {
     forceRepaint(document.documentElement);
   });
 
-
   if (!isReset) {
     setCookie("userColorPreference", newPrimaryColor, 1);
   } else {
@@ -224,3 +223,10 @@ document
 function forceRepaint(element) {
   element.offsetHeight; // Reading this property will trigger a repaint
 }
+
+// After updating theme colors
+const buttons = document.querySelectorAll("button");
+buttons.forEach(forceRepaint);
+
+const logos = document.querySelectorAll(".logo img");
+logos.forEach(forceRepaint);
