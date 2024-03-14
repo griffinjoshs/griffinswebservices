@@ -27,8 +27,6 @@ function updateThemeColors(newPrimaryColor, isReset = false) {
 
   Object.keys(propertiesToUpdate).forEach((key) => {
     document.documentElement.style.setProperty(key, propertiesToUpdate[key]);
-    // Force repaint on the root element after changing each property
-    forceRepaint(document.documentElement);
   });
 
   if (!isReset) {
@@ -40,6 +38,7 @@ function updateThemeColors(newPrimaryColor, isReset = false) {
 
   updateRadioSelection(newPrimaryColor, isReset);
   closeColorPopup(); // Close the color popup after updating the theme colors
+  forceRepaint();
 }
 
 function closeColorPopup() {
@@ -220,13 +219,9 @@ document
     toggleTheme(this.checked);
   });
 
-function forceRepaint(element) {
-  element.offsetHeight; // Reading this property will trigger a repaint
+function forceRepaint() {
+  const body = document.body;
+  body.style.display = "none";
+  body.offsetHeight; // No need to store this anywhere, the reflow will happen
+  body.style.display = "";
 }
-
-// After updating theme colors
-const buttons = document.querySelectorAll("button");
-buttons.forEach(forceRepaint);
-
-const logos = document.querySelectorAll(".logo img");
-logos.forEach(forceRepaint);
