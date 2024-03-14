@@ -186,46 +186,46 @@ document.addEventListener("DOMContentLoaded", function () {
   animate(); // Start the animation loop
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const cursor = document.querySelector(".cursor");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const cursor = document.querySelector(".cursor");
 
-  function dynamicCursorHover(selector, hoverStyles) {
-    const elements = document.querySelectorAll(selector);
+//   function dynamicCursorHover(selector, hoverStyles) {
+//     const elements = document.querySelectorAll(selector);
 
-    elements.forEach((element) => {
-      element.addEventListener("mouseover", function () {
-        Object.assign(cursor.style, hoverStyles);
-      });
+//     elements.forEach((element) => {
+//       element.addEventListener("mouseover", function () {
+//         Object.assign(cursor.style, hoverStyles);
+//       });
 
-      element.addEventListener("mouseout", function () {
-        // Instead of applying reset styles, clear the styles set on hover
-        // This will allow the cursor to revert to its default styles defined in CSS
-        Object.keys(hoverStyles).forEach((key) => {
-          cursor.style[key] = ""; // Clear each style property
-        });
-      });
-    });
-  }
+//       element.addEventListener("mouseout", function () {
+//         // Instead of applying reset styles, clear the styles set on hover
+//         // This will allow the cursor to revert to its default styles defined in CSS
+//         Object.keys(hoverStyles).forEach((key) => {
+//           cursor.style[key] = ""; // Clear each style property
+//         });
+//       });
+//     });
+//   }
 
-  // Define styles for hover
-  const hoverStyles = {
-    width: "200px",
-    height: "200px",
-    borderRadius: "var(--rounded-border-radius);",
-    textAlign: "center",
-    textDecoration: "none",
-    boxShadow: "var(--primaryShadow)",
-    filter: "var(--primary-shadow)",
-    zIndex: "10",
-    pointerEvents: "none",
-  };
+//   // Define styles for hover
+//   const hoverStyles = {
+//     width: "200px",
+//     height: "200px",
+//     borderRadius: "var(--rounded-border-radius);",
+//     textAlign: "center",
+//     textDecoration: "none",
+//     boxShadow: "var(--primaryShadow)",
+//     filter: "var(--primary-shadow)",
+//     zIndex: "10",
+//     pointerEvents: "none",
+//   };
 
-  // Usage example for <h1> tags
-  dynamicCursorHover("h1.animatedText", hoverStyles);
+//   // Usage example for <h1> tags
+//   dynamicCursorHover("h1.animatedText", hoverStyles);
 
-  // Update the .cursor position on mouse move
-  document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.pageX + "px";
-    cursor.style.top = e.pageY + "px";
-  });
-});
+//   // Update the .cursor position on mouse move
+//   document.addEventListener("mousemove", (e) => {
+//     cursor.style.left = e.pageX + "px";
+//     cursor.style.top = e.pageY + "px";
+//   });
+// });

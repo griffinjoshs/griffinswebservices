@@ -17,15 +17,15 @@ body {
 /* hero-section styles */
 @media screen and (min-width: 768px) {
   .hero-section-space {
-    height: 30%;
+    height: 25%;
   }
 
   .hero-section-content {
-    height: 30%;
+    height: 55%;
   }
 
   .hero-button-section {
-    height: 40%;
+    height: 20%;
     display: flex;
     justify-content: center;
     padding-bottom: 5px;
@@ -42,11 +42,11 @@ body {
   }
 
   .hero-section-content {
-    height: 55%;
+    height: 50%;
   }
 
   .hero-button-section {
-    height: 30%;
+    height: 35%;
   }
 
   .hero-button-section {
@@ -55,7 +55,7 @@ body {
   }
 
   .hero-wrap {
-    height: 90vh;
+    height: 95vh;
   }
 }
 
