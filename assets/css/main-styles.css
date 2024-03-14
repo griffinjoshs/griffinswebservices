@@ -21,11 +21,11 @@ body {
   }
 
   .hero-section-content {
-    height: 55%;
+    height: 45%;
   }
 
   .hero-button-section {
-    height: 20%;
+    height: 30%;
     display: flex;
     justify-content: center;
     padding-bottom: 5px;

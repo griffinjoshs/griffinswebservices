@@ -1,57 +1,51 @@
-// customCursor.js
+function createDynamicCursor(targetElementSelector, styles = {}) {
+  document.addEventListener("DOMContentLoaded", () => {
+    const targetElement = document.querySelector(targetElementSelector);
 
-// primary color cursor
-document.addEventListener("DOMContentLoaded", function () {
-  const cursor = document.querySelector(".cursor");
+    if (!targetElement) {
+      console.warn(
+        `No element found with the selector: ${targetElementSelector}`
+      );
+      return;
+    }
 
-  document.addEventListener("mousemove", (e) => {
-    const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    cursor.style.left = e.pageX + scrollX + "px";
-    cursor.style.top = e.pageY + scrollY + "px";
+    const newCursor = document.createElement("div");
+    newCursor.classList.add("cursor-base");
+
+    // Apply custom styles from the styles object
+    Object.keys(styles).forEach((property) => {
+      newCursor.style[property] = styles[property];
+    });
+
+    document.body.appendChild(newCursor);
+
+    targetElement.addEventListener("mousemove", (e) => {
+      const { clientX, clientY } = e;
+      newCursor.style.left = `${clientX}px`;
+      newCursor.style.top = `${clientY}px`;
+      newCursor.style.display = "block";
+    });
+
+    targetElement.addEventListener("mouseleave", () => {
+      newCursor.style.display = "none";
+    });
+
+    return newCursor;
   });
+}
+
+createDynamicCursor("body", {
+  width: "20px",
+  height: "20px",
+  borderRadius: "50px",
+  background: "var(--background-color)",
+  zIndex: "99999",
 });
 
-// large primary color orb cursor
-// document.addEventListener("DOMContentLoaded", function () {
-//   const cursor = document.querySelector(".cursor");
-
-//   function dynamicCursorHover(selector, hoverStyles) {
-//     const elements = document.querySelectorAll(selector);
-
-//     elements.forEach((element) => {
-//       element.addEventListener("mouseover", function () {
-//         Object.assign(cursor.style, hoverStyles);
-//       });
-
-//       element.addEventListener("mouseout", function () {
-//         // Instead of applying reset styles, clear the styles set on hover
-//         // This will allow the cursor to revert to its default styles defined in CSS
-//         Object.keys(hoverStyles).forEach((key) => {
-//           cursor.style[key] = ""; // Clear each style property
-//         });
-//       });
-//     });
-//   }
-
-//   // Define styles for hover
-//   const hoverStyles = {
-//     width: "240px",
-//     height: "240px",
-//     borderRadius: "var(--rounded-border-radius);",
-//     textAlign: "center",
-//     textDecoration: "none",
-//     boxShadow: "var(--primaryShadow)",
-//     filter: "var(--primary-shadow)",
-//     zIndex: "10",
-//     pointerEvents: "none",
-//   };
-
-//   dynamicCursorHover("h1 .hero-section-content", hoverStyles);
-
-//   // Update the .cursor position on mouse move
-//   document.addEventListener("mousemove", (e) => {
-//     cursor.style.left = e.pageX + "px";
-//     cursor.style.top = e.pageY + "px";
-//   });
-// });
+createDynamicCursor(".hero-section-content", {
+  width: "250px",
+  height: "250px",
+  borderRadius: "50%",
+  background: "var(--primary-color)",
+  zIndex: "99",
+});

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Define lastMousePosition at the start of your script
   let lastMousePosition = { x: 0, y: 0 };
 
-  const cursor = document.querySelector(".cursor");
+  const cursor = document.querySelector(".cursor-base");
   const canvas = document.getElementById("smokeCanvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
@@ -184,6 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   animate(); // Start the animation loop
+  console.log(cursor); // Should not be null or undefined
+  console.log(canvas); // Should not be null or undefined
 });
 
 // document.addEventListener("DOMContentLoaded", function () {

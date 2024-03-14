@@ -1,16 +1,12 @@
-.cursor {
-  position: fixed;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
+.cursor-base {
+  position: absolute;
   pointer-events: none;
-  z-index: 99;
   transform: translate(-50%, -50%);
+  /* display: none; */
 }
 
 @media screen and (max-width: 768px) {
-  .cursor {
+  div .cursor-base {
     display: none;
   }
 }
@@ -44,4 +40,16 @@
 button,
 input:hover .cursor {
   background: none;
+}
+
+#hero-section-cursor {
+  position: absolute;
+  pointer-events: none; /* Ignore the cursor element in mouse events */
+  z-index: 10000; /* Ensure it is above other items on the page */
+  width: 20px; /* The size of the custom cursor */
+  height: 20px; /* The size of the custom cursor */
+  border-radius: 50%; /* Make it round */
+  background: #000; /* Example color */
+  transform: translate(-50%, -50%); /* Center it around the cursor */
+  display: none; /* Hide it by default */
 }
