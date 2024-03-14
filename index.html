@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Griffin's Web Services</title>
+    <!-- Tab Icon -->
+    <link
+      rel="icon"
+      href="./assets/image/mylogorightbluedslittle.png"
+      type="image/png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/variables-and-base-styles.css" />
+    <link rel="stylesheet" href="./assets/css/orbs-gradients.css" />
+    <link rel="stylesheet" href="./assets/css/cursor.css" />
+    <link rel="stylesheet" href="./assets/css/imageVideoonHero.css" />
+    <link rel="stylesheet" href="./assets/css/dark-or-light-mode.css" />
+    <link rel="stylesheet" href="./assets/css/main-styles.css" />
+    <link rel="stylesheet" href="./assets/css/buttons.css" />
+    <link rel="stylesheet" href="./assets/css/header.css" />
+  </head>
+  <style>
+    /* This ensures .overlay only changes the background of .hero-section */
+    .hero-section.overlay {
+      background-position: center;
+      background-size: cover;
+      animation: overlay-fade-out ease-in-out;
+      animation-timeline: scroll();
+      width: 100%;
+      z-index: 0;
+    }
+
+    @keyframes overlay-fade-out {
+      0% {
+        background: linear-gradient(
+            var(--transparent-black),
+            /* Starts with a semi-transparent black */ var(--transparent-black)
+              /* Ends with the same semi-transparent black */
+          ),
+          url("./assets/image/meoncomp.jpg") no-repeat center center/cover;
+      }
+      5% {
+        background: none;
+      }
+    }
+  </style>
+  <body>
+    <div class="cursor"></div>
+    <canvas id="smokeCanvas"></canvas>
+    <!-- <div id="smoky-trail"></div> -->
+    <div class="just-the-page">
+      <div id="top-bar-color-popup" class="hide">
+        <div class="colors-wrap">
+          <div id="color-button-container">
+            <!-- Color options will be dynamically inserted here -->
+          </div>
+          <button id="reset-color-button" class="reset-button icon-button">
+            <i
+              class="fas fa-redo"
+              aria-hidden="true"
+              style="color: var(--maintext-color)"
+            ></i>
+          </button>
+        </div>
+      </div>
+      <!-- Add the reset button at the end -->
+
+      <!-- header -->
+      <nav class="header main-container-width">
+        <div class="header-area header-area-left logo">
+          <img
+            src="./assets/image/mylogoright.png"
+            width="70"
+            height="70"
+            alt="Logo"
+          />
+        </div>
+        <div class="header-area header-icon-area">
+          <!-- Checkbox hidden but placed before the label -->
+          <input type="checkbox" id="toggle-overlay-checkbox" hidden />
+          <label
+            for="toggle-overlay-checkbox"
+            class="header-functional-icon normal-circle-button normal-circle-button-check normal-circle-button-small"
+          >
+            <i class="fa fa-image"></i>
+          </label>
+
+          <!-- Toggle Theme Checkbox and Label with Icons -->
+          <input type="checkbox" id="toggle-checkbox" hidden />
+          <!-- Label for the theme toggle -->
+          <label
+            class="header-functional-icon normal-circle-button normal-circle-button-check normal-circle-button-small"
+            for="toggle-checkbox"
+          >
+            <i class="far fa-moon" id="icon-moon"></i>
+            <!-- Moon Icon -->
+            <i class="far fa-sun" style="display: none" id="icon-sun"></i>
+            <!-- Sun Icon -->
+          </label>
+
+          <!-- Hidden Checkbox for the color change toggle -->
+          <input type="checkbox" id="color-change-checkbox" hidden />
+          <label
+            class="header-functional-icon normal-circle-button normal-circle-button-check normal-circle-button-small color-change-check"
+            for="color-change-checkbox"
+          >
+            <i class="fa fa-tint"></i>
+          </label>
+        </div>
+        <div class="header-area menu header-area-right">
+          <!-- Invisible Checkbox -->
+          <input
+            type="checkbox"
+            id="hamburger-toggle"
+            class="hamburger-toggle"
+            hidden
+          />
+          <!-- Hamburger Menu as a Label for the Checkbox -->
+          <label for="hamburger-toggle" class="hamburger-menu">
+            <span class="line top"></span>
+            <span class="line middle"></span>
+            <span class="line bottom"></span>
+          </label>
+        </div>
+      </nav>
+      <!-- hero-section -->
+      <section class="hero-section main-container-width" id="hero-section">
+        <div class="hero-section-space"></div>
+        <div class="hero-section-content">
+          <h1 class="animatedText">
+            <span class="emphasizeh1">Griffin's</span> Web Services
+          </h1>
+          <p class="animatedText">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptates, quos, quas, quod quibusdam quia quae quidem quae quidem
+            qu
+          </p>
+        </div>
+        <div class="hero-button-section">
+          <button
+            class="functioning-button light-orb-button onpage-projects-btn"
+          >
+            See Our Projects
+          </button>
+          <div class="space-between-btns"></div>
+          <button
+            class="functioning-button light-orb-button onpage-contact-btn"
+          >
+            Contact Me
+          </button>
+        </div>
+      </section>
+    </div>
+  </body>
+  <script></script>
+  <script src="./assets/js/scrolling-and-cursor/customCursor.js"></script>
+  <script src="./assets/js/scrolling-and-cursor/smokefollowingcursor.js"></script>
+  <script src="./assets/js/scrolling-and-cursor/buttonFollowingCursor.js"></script>
+  <script src="./assets/js/animatingText.js"></script>
+  <script src="./assets/js/header-changes/cookies.js"></script>
+  <script src="./assets/js/header-changes/overlay-image.js"></script>
+  <script src="./assets/js/header-changes/changePrimaryColor.js"></script>
+  <script src="./assets/js/header-changes/dark-or-light-mode.js"></script>
+</html>

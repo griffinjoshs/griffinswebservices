@@ -1,0 +1,22 @@
+/* This ensures .overlay only changes the background of .hero-section */
+.hero-section.overlay {
+  background-position: center;
+  background-size: cover;
+  animation: overlay-fade-out ease-in-out;
+  animation-timeline: scroll();
+  width: 100%;
+}
+
+@keyframes overlay-fade-out {
+  0% {
+    background: linear-gradient(
+        var(--transparent-black),
+        /* Starts with a semi-transparent black */ var(--transparent-black)
+          /* Ends with the same semi-transparent black */
+      ),
+      url("./assets/image/meoncomp.jpg") no-repeat center center/cover;
+  }
+  5% {
+    background: none;
+  }
+}

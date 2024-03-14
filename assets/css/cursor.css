@@ -1,0 +1,47 @@
+.cursor {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  pointer-events: none;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+.cursor {
+  display: none;
+}
+}
+
+#smokeCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Allow clicks to pass through */
+  z-index: 999; /* Adjust based on your page content */
+}
+
+/* Simple "smoke" animation */
+@keyframes smokeAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.smoke-visible {
+  animation: smokeAnimation 2s forwards;
+}
+
+button,
+input:hover .cursor {
+  background: none;
+}

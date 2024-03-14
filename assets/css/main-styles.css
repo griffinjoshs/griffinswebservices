@@ -1,0 +1,134 @@
+/* main-styles ------------------------------------------- */
+body {
+  background-color: var(--background-color);
+  font-family: var(--primary-font);
+  color: var(--maintext-color);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.just-the-page {
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------------------- */
+
+/* hero-section styles */
+@media screen and (min-width: 768px) {
+  .hero-section-space {
+    height: 30%;
+  }
+
+  .hero-section-content {
+    height: 40%;
+  }
+
+  .hero-button-section {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-section-space {
+    height: 15%;
+  }
+
+  .hero-section-content {
+    height: 55%;
+  }
+
+  .hero-button-section {
+    height: 30%;
+  }
+
+  .hero-button-section {
+    width: 100% !important;
+  }
+}
+
+.hero-section {
+  display: flex; /* Makes the section a flex container */
+  flex-direction: column; /* Stacks the content vertically */
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: -12vh;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  /* flex-basis: va
+  r(--section-flex-basis-15); */
+}
+
+.hero-section-content {
+  width: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hero-button-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-section-content h1,
+p {
+  text-transform: uppercase; /* Uppercase text */
+}
+
+/* Adjusted hero-section styles */
+.hero-section-content h1 {
+  color: var(--maintext-color);
+  font-family: var(--quinary-font); /* Example: 'Oswald' font */
+  font-size: var(--hero-font-size);
+  line-height: 0.75;
+  margin: 1rem 0 1.5rem 0; /* Reduced bottom margin of the h1 to bring it closer to the paragraph */
+  text-transform: uppercase;
+}
+
+.hero-section-content p {
+  color: var(--maintext-color);
+  font-family: var(--secondary-font); /* Example: 'Open Sans' font */
+  font-size: var(--hero-p-font-size);
+  line-height: var(--primary-line-height);
+  margin-top: 0.5rem; /* Reduced top margin of the paragraph to bring it closer to the h1 */
+  text-transform: uppercase;
+  margin: 0 auto;
+  align-self: center;
+  padding-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-section-content p {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-section-content p {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile {
+    display: none;
+  }
+}
+/* -------------------------------------------------------------------- */

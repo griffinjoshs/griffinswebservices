@@ -1,0 +1,33 @@
+/* orbs-gradient */
+.light-orb-button {
+  --button-width: 150px; /* Default width for buttons */
+  --orb-btn-font-size: calc(
+    var(--button-width) / 10
+  ); /* Dynamic font size calculation */
+
+  font-family: var(--primary-font);
+  font-size: var(--orb-btn-font-size);
+  color: var(--everdark-color);
+  background: var(--primary-color);
+  outline: none;
+  position: absolute;
+  border: none;
+  border-radius: var(--rounded-border-radius); /* Rounded corners */
+  text-align: center;
+  text-decoration: none;
+  box-shadow: var(--primaryShadow);
+  filter: var(--primary-shadow);
+  transition: all 0.3s ease;
+  width: var(--button-width, 160px); /* Dynamic width with a default fallback */
+  height: 30px;
+  white-space: nowrap; /* Keep text on one line */
+  box-sizing: border-box; /* Ensure padding is included in the width calculation */
+}
+
+.light-orb-button:hover {
+  border-radius: 50%; /* Perfect circle */
+  height: var(
+    --button-width,
+    160px
+  ); /* Adjust height to match the width for a perfect circle */
+}

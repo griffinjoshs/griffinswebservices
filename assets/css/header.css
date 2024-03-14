@@ -1,0 +1,151 @@
+.header {
+  display: flex;
+  align-items: stretch; /* Ensures items stretch to fill the container height */
+  justify-content: space-between;
+  /* border-bottom: 1px solid var(--secondary-bg);  */
+  /* Keeps the bottom border of the header */
+  position: sticky;
+  top: 0;
+  height: 12vh;
+  z-index: 1000000;
+  /* padding: 30px 0; */
+}
+
+.logo img {
+  filter: var(--primary-shadow);
+  cursor: pointer;
+}
+
+.logo img:hover {
+  filter: var(--primary-shadow15);
+}
+
+.logo,
+.content,
+.menu {
+  display: flex; /* Makes each section a flex container */
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
+  /* flex-basis: var(--section-flex-basis-15); */
+  text-align: center;
+  padding: 10px;
+  /* border-right: var(--header-border); */
+  /* Apply the new border variable */
+}
+
+/* Optional: Remove the border from the last section if it's not needed */
+.header > :not(:last-child) {
+  /* border-right: var(--header-border); */
+}
+
+.header > :last-child {
+  border-right: none; /* Ensures the last child doesn't have a right border */
+}
+
+/* Adjusts the .content class to take the remaining space */
+.content {
+  flex-grow: 1;
+  display: flex; /* Makes .content a flex container */
+  justify-content: space-evenly; /* Spaces children evenly */
+  align-items: center; /* Centers children vertically */
+  text-align: left; /* Aligns text to the left; adjust as needed */
+}
+
+/* Removed the pseudo-element styles for .logo and .menu */
+
+.header-area {
+  padding: 0;
+}
+
+.header-icon-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* social-icons */
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Adjust based on your preference for spacing between icons */
+}
+
+/* Individual Social Icon Styling */
+.social-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Creates a circular background */
+  background-color: var(
+    --secondary-bg
+  ); /* Background color from CSS variables */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--maintext-color); /* Icon color */
+  font-size: var(
+    --quaternary-font-size
+  ); /* Adjusted to use a specific font size variable */
+}
+
+/* Font Awesome Icons within Social Icons */
+.social-icon i {
+  font-size: 24px; /* Adjust this value as needed, independent of CSS variables for flexibility */
+}
+
+.hamburger-menu {
+  width: 30px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger-menu .line {
+  height: 2px;
+  background-color: var(--maintext-color);
+  transition: width 0.3s ease; /* Apply a smooth transition to width changes */
+}
+
+.hamburger-menu .top {
+  width: 70%;
+  transition-delay: 0.3s; /* Transition back with a delay */
+}
+
+.hamburger-menu .middle {
+  width: 100%; /* Remain full width at all times, no transition needed */
+}
+
+.hamburger-menu .bottom {
+  width: 80%;
+  transition-delay: 0s; /* Transition back with no delay */
+}
+
+.hamburger-menu:hover .top {
+  width: 100%;
+  transition-delay: 0s; /* Transition without delay on hover */
+}
+
+.hamburger-menu:hover .middle {
+  animation: none; /* No animation needed, remains 100% */
+}
+
+.hamburger-menu:hover .bottom {
+  width: 100%;
+  transition-delay: 0.3s; /* Delay to follow the top line */
+}
+
+/* @keyframes expandTop {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes expandBottom {
+  to {
+    width: 100%;
+  }
+} */

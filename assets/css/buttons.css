@@ -1,0 +1,147 @@
+/* Base style for both button and checkbox */
+.normal-circle-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Makes the element circular */
+  transition: background-color 0.3s; /* Smooth transition for background color change */
+  border: none;
+  color: var(--maintext-color);
+  box-sizing: border-box; /* Include padding and border in the width and height */
+  background-color: var(--secondary-bg); /* Initial background color */
+}
+
+/* Styles specific to buttons */
+.normal-circle-button-btn {
+  padding: 15px; /* Add padding for buttons */
+}
+
+/* Styles specific to checkbox labels */
+.normal-circle-button-check {
+  padding: 0; /* No padding for checkbox labels */
+}
+
+.normal-circle-button i {
+  font-size: var(--small-icon-font-size);
+}
+
+/* Apply hover effect only if the element is not active */
+.normal-circle-button:not(.active):hover,
+.normal-circle-button:not(:checked):hover {
+  color: var(--everdark-color);
+  background-color: var(--primary-color);
+}
+
+/* Style label when checkbox is checked */
+input[type="checkbox"]:checked + .normal-circle-button-check,
+.color-change-check {
+  color: var(--everdark-color);
+  background-color: var(--primary-color);
+}
+
+/* Fixed size for small and medium buttons, to match the size of checkboxes */
+.normal-circle-button-small {
+  padding: 0; /* Remove padding to maintain size consistency */
+  width: 35px; /* Fixed width */
+  height: 35px; /* Fixed height */
+}
+
+.normal-circle-button-medium {
+  padding: 0; /* Remove padding to maintain size consistency */
+  width: 45px; /* Fixed width */
+  height: 45px; /* Fixed height */
+}
+
+.colors-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#color-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.color-checkbox + .color-button {
+  cursor: pointer;
+  width: 25px; /* Set the width of the button */
+  height: 25px; /* Set the height of the button */
+  display: block; /* Ensures that the button is rendered as a block-level element */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  margin: 5px; /* Add margin around the button if needed */
+}
+
+.color-checkbox + .color-button i {
+  font-size: 15px; /* Adjust font size for visibility */
+  display: none; /* Initially hide the X icon */
+  color: var(--background-color);
+}
+
+.color-checkbox:checked + .color-button i {
+  display: block; /* Show the X icon when checkbox is checked */
+}
+
+.color-button {
+  cursor: pointer;
+  width: 50px; /* Set the width of the button */
+  height: 50px; /* Set the height of the button */
+  background-color: var(
+    --primary-color
+  ); /* Set the background color to the primary color */
+  border: 2px solid var(--maintext-color); /* Set the border color to the maintext color */
+  display: flex; /* Use flexbox to center the X icon */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  margin: 5px; /* Add margin around the button if needed */
+  position: relative; /* Needed for absolute positioning of the X icon */
+}
+
+.color-checkbox:checked + .color-button i {
+  display: flex; /* Show the X icon when checkbox is checked */
+  font-size: 30px; /* Increase font size to make the X mark larger */
+  width: 100%; /* Make the X mark take up the entire container width */
+  height: 100%; /* Make the X mark take up the entire container height */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  position: absolute; /* Position it absolutely within the button */
+  top: 0;
+  left: 0;
+}
+
+/* Hide the checkbox visually but remain accessible */
+#toggle-checkbox {
+  display: none;
+}
+
+/* Style for the Sun Icon, shown when checkbox is checked */
+#toggle-checkbox:checked + label .fa-sun {
+  display: inline;
+}
+
+/* Style for the Moon Icon, shown when checkbox is not checked */
+#toggle-checkbox:not(:checked) + label .fa-moon {
+  display: inline;
+}
+
+/* Hide the opposite icon */
+#toggle-checkbox:checked + label .fa-moon,
+#toggle-checkbox:not(:checked) + label .fa-sun {
+  display: none;
+}
+
+/* Style label when checkbox is checked
+#toggle-checkbox:checked + label {
+  color: var(--background-color);
+  color: var(--everdark-color);
+} */
+
+.reset-button {
+  background: none;
+  border: none;
+}

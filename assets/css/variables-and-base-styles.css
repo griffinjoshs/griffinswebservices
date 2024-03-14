@@ -1,0 +1,145 @@
+/* variable-and-base-styles.css */
+:root {
+  /* Existing color variables */
+  --primary-color: #5e76f6;
+  --secondary-color: #798bf1;
+  --tertiary-color: #4d5688;
+  --maintext-color: #f4f4f4;
+  --lightened-primary: #c9d0fa;
+  --background-color: black;
+  --everdark-color: black;
+  --secondary-bg: #2a2a2ab1;
+  --transparent-black: rgba(0, 0, 0, 0.85);
+
+  /* Font and other miscellaneous variables */
+  /* Ensure to only keep the ones that are being used */
+
+  --primary-font: "Roboto", sans-serif;
+  --primary-font-size: calc(0.5rem + 2vmin);
+  --accent-font-size: calc(0.8rem + 0.4vw);
+  --hero-font-size: calc(3.5rem + 5vw);
+  --hero-p-font-size: calc(0.5rem + 0.5vw);
+  --paragraph-font-size: calc(0.5rem + 0.3vmin);
+  --small-icon-font-size: calc(0.65rem + 0.5vmin);
+  --primary-line-height: 1.5;
+  --section-flex-basis-15: 15%;
+  --transitionEase: all 0.3s ease;
+  --rounded-border-radius: 25px;
+
+  /* Gradient Color Variables */
+  --gradient-color-1: rgba(94, 118, 246, 1);
+  --gradient-color-2: rgba(94, 118, 246, 0.8);
+  --gradient-color-3: rgba(94, 118, 246, 0.4);
+  --gradient-color-4: rgba(94, 118, 246, 0.2);
+  --gradient-color-5: rgba(94, 118, 246, 0.05);
+  --gradient-transparent: transparent;
+
+  /* RGBA Color Variables for Shadows */
+  --primary-color-rgba-70: rgba(94, 118, 246, 0.7);
+  --primary-color-rgba-50: rgba(
+    94,
+    118,
+    246,
+    0.5
+  ); /* Example, if you need it */
+  --primary-color-rgba-30: rgba(
+    94,
+    118,
+    246,
+    0.3
+  ); /* Example, if you need it */
+
+  /* Updated gradient variable using the new color variables */
+  --orb-gradient: radial-gradient(
+    closest-side at center,
+    var(--gradient-color-1) 0%,
+    var(--gradient-color-2) 20%,
+    var(--gradient-color-3) 50%,
+    var(--gradient-color-4) 70%,
+    var(--gradient-color-5) 85%,
+    var(--gradient-transparent) 100%
+  );
+
+  /* Shadow Variables */
+  --primaryShadow: 0 0 10px var(--primary-color-rgba-70),
+    0 0 15px var(--primary-color-rgba-70), 0 0 20px var(--primary-color-rgba-70),
+    inset 0 0 10px var(--primary-color-rgba-70),
+    inset 0 0 15px var(--primary-color-rgba-70),
+    inset 0 0 20px var(--primary-color-rgba-70);
+
+  /* Adjustments for other shadow variables as needed */
+  --primary-shadow: drop-shadow(0 0 6px var(--primary-color))
+    drop-shadow(0 0 8px var(--primary-color))
+    drop-shadow(0 3px 12px var(--primary-color));
+  --primary-shadow15: drop-shadow(0 0 9px var(--primary-color))
+    drop-shadow(0 0 12px var(--primary-color))
+    drop-shadow(0 0 18px var(--primary-color));
+  --secondary-shadow: drop-shadow(2px 4px 5px var(--primary-color-rgba-30))
+    drop-shadow(4px 8px 10px var(--primary-color-rgba-50))
+    /* and so on for consistency */;
+  --custom-cursor-shadow: drop-shadow(0 0 15px var(--primary-color))
+    drop-shadow(0 0 30px var(--primary-color))
+    drop-shadow(0 0 45px var(--primary-color));
+  --custom-cursor-scroll-shadow: drop-shadow(0 0 25px var(--primary-color))
+    drop-shadow(0 0 50px var(--primary-color))
+    drop-shadow(0 0 75px var(--primary-color));
+}
+
+.light {
+  --background-color: white; /* Inverted from black */
+  --maintext-color: black; /* Inverted from white */
+  --secondary-bg: #d5d5d5; /* Lighter shade for the secondary background */
+  --transparent-black: rgba(255, 255, 255, 0.85); /* Inverted transparency */
+}
+
+.primary-text {
+  color: var(--primary-color);
+}
+
+.primary-background {
+  background-color: var(--primary-color);
+}
+
+section {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.main-container-width {
+  width: 85%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  /* position: absolute; */
+  transition: all 0.2s ease;
+  z-index: 100000;
+}
+
+/* .button-absolute {
+  position: absolute;
+} */
+
+::selection {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+::-moz-selection {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.onpage-contact-btn {
+  right: 10%;
+}
+
+.onpage-projects-btn {
+  left: 10%;
+}
+
+.hide {
+  display: none;
+}
