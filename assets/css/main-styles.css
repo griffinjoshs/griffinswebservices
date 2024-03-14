@@ -30,6 +30,11 @@ body {
     justify-content: center;
     padding-bottom: 5px;
   }
+
+  .hero-section {
+    height: 100vh;
+    margin-top: -12vh;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -49,6 +54,11 @@ body {
     width: 100% !important;
     padding-bottom: 50px !important;
   }
+
+  .hero-section {
+    height: 90vh;
+    margin-top: -10vh;
+  }
 }
 
 .hero-section {
@@ -57,8 +67,6 @@ body {
   justify-content: space-between;
   text-align: center;
   align-items: center;
-  height: 100vh;
-  margin-top: -12vh;
   padding: 0;
   position: relative;
   width: 100%;
