@@ -3,7 +3,8 @@ function createDynamicCursor(
   styles = {},
   desktop = true,
   mobile = true,
-  overInputsAndButtons = false
+  overInputsAndButtons = false,
+  returnPosition = { enabled: false, x: "50%", y: "50%" } // New parameter with default value
 ) {
   document.addEventListener("DOMContentLoaded", () => {
     const targetElement = document.querySelector(targetElementSelector);
@@ -31,6 +32,20 @@ function createDynamicCursor(
 
       newCursor.style.display =
         isVisible && shouldDisplayBasedOnScreenSize ? "block" : "none";
+
+      // Additional logic for returning the cursor to a specific position
+      if (!isVisible && returnPosition.enabled) {
+        // Convert percentages to pixels if necessary
+        const posX = returnPosition.x.endsWith("%")
+          ? (parseFloat(returnPosition.x) / 100) * window.innerWidth
+          : returnPosition.x;
+        const posY = returnPosition.y.endsWith("%")
+          ? (parseFloat(returnPosition.y) / 100) * window.innerHeight
+          : returnPosition.y;
+
+        newCursor.style.left = `${posX}px`;
+        newCursor.style.top = `${posY}px`;
+      }
     };
 
     targetElement.addEventListener("mousemove", (e) => {
@@ -46,22 +61,24 @@ function createDynamicCursor(
     window.addEventListener("resize", () => updateCursorVisibility(false));
 
     if (!overInputsAndButtons) {
-      // Extend this to include the specific accordion elements or use event delegation
-      if (!overInputsAndButtons) {
-        // Include more selectors as needed, for instance, targeting the entire header or accordion specifically
-        document.querySelectorAll("header *, button, input, textarea, select").forEach(element => {
-          element.addEventListener("mouseover", () => updateCursorVisibility(false)); // Hide cursor
-          element.addEventListener("mouseout", () => updateCursorVisibility(true)); // Show cursor based on previous logic
+      document
+        .querySelectorAll("header *, button, input, textarea, select")
+        .forEach((element) => {
+          element.addEventListener("mouseover", () =>
+            updateCursorVisibility(false)
+          );
+          element.addEventListener("mouseout", () =>
+            updateCursorVisibility(true)
+          );
         });
-      }
-
-      document.addEventListener("mouseout", (e) => {
-        const shouldShow = !e.target.matches(
-          "button, input, textarea, select, .specific-accordion-class"
-        );
-        if (shouldShow) updateCursorVisibility(true);
-      });
     }
+
+    document.addEventListener("mouseout", (e) => {
+      const shouldShow = !e.target.matches(
+        "button, input, textarea, select, .specific-accordion-class"
+      );
+      if (shouldShow) updateCursorVisibility(true);
+    });
 
     return newCursor;
   });
@@ -83,15 +100,17 @@ createDynamicCursor(
 ); // Show on desktop only
 
 createDynamicCursor(
-  ".hero-section-content",
+  ".hero-section-content h1",
   {
-    width: "200px",
-    height: "200px",
+    width: "300px",
+    height: "300px",
     borderRadius: "50%",
-    background: "var(--orb-gradient)",
+    background:
+      "radial-gradient(circle, var(--primary-color) 50%, rgba(0,0,0,0) 70%)",
     zIndex: "99",
   },
   true,
   false,
-  false
-); // Show on desktop only
+  false,
+  { enabled: true, x: "50%", y: "40%" } // Enable returning to the center
+);

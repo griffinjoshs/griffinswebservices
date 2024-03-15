@@ -71,7 +71,7 @@ prepareAndAnimateText(
   "var(--primary-color)",
   100,
   true,
-  true,
+  false,
   () => {
     console.log("First animation completed on desktop!");
     // Usage example - starts the second animation on mobile only
@@ -97,6 +97,18 @@ prepareAndAnimateText(
         );
       }
     );
+  }
+);
+
+prepareAndAnimateText(
+  ".hero-section-content h1",
+  "transparent",
+  "var(--maintext-color)",
+  40,
+  true,
+  true,
+  () => {
+    console.log("First animation completed on both mobile and desktop!");
   }
 );
 
