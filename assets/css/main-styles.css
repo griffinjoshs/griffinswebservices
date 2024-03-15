@@ -1,10 +1,16 @@
 /* main-styles ------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--background-color);
   font-family: var(--primary-font);
   color: var(--maintext-color);
-  margin: 0;
-  box-sizing: border-box;
+  /* margin: 0;
+  box-sizing: border-box; */
 }
 
 .just-the-page {
@@ -99,7 +105,7 @@ body {
 }
 
 .hero-section-content h1 {
-  text-shadow: 1px 1px 2px var(--background-color);
+  text-shadow: 0.5px 0.5px 1px var(--maintext-color);
 }
 
 .hero-button-section {
