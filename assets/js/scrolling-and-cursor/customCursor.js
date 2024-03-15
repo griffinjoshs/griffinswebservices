@@ -1,3 +1,4 @@
+// customCursor.js
 function createDynamicCursor(
   targetElementSelector,
   styles = {},
@@ -102,15 +103,15 @@ createDynamicCursor(
 createDynamicCursor(
   ".hero-section-content h1",
   {
-    width: "300px",
-    height: "300px",
+    width: "350px",
+    height: "350px",
     borderRadius: "50%",
     background:
       "radial-gradient(circle, var(--primary-color) 50%, rgba(0,0,0,0) 70%)",
     zIndex: "99",
   },
   true,
-  false,
+  true,
   false,
   { enabled: true, x: "50%", y: "40%" } // Enable returning to the center
 );
