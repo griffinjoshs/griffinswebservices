@@ -3,13 +3,12 @@
   --orb-btn-font-size: calc(
     var(--button-width) + 2 / 10
   ); /* Dynamic font size calculation */
-
   font-family: var(--primary-font);
   font-size: var(--orb-btn-font-size);
   color: var(--everdark-color);
   background: var(--primary-color);
   outline: none;
-  position: absolute;
+  /* position: absolute; */
   border: none;
   border-radius: var(--rounded-border-radius); /* Rounded corners */
   text-align: center;

@@ -134,13 +134,13 @@ button {
   color: var(--primary-color);
 }
 
-.onpage-contact-btn {
+/* .onpage-contact-btn {
   right: 10%;
 }
 
 .onpage-projects-btn {
   left: 10%;
-}
+} */
 
 .hide {
   display: none;
