@@ -52,6 +52,8 @@ body {
   .hero-button-section {
     width: 100% !important;
     padding-bottom: 50px !important;
+    display: flex;
+    justify-content: space-between; /* or 'space-around' based on your preference */
   }
 
   .hero-wrap {

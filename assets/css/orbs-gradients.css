@@ -1,7 +1,7 @@
 .light-orb-button {
   --button-width: 150px; /* Default width for buttons */
   --orb-btn-font-size: calc(
-    var(--button-width) / 10
+    var(--button-width) + 2 / 10
   ); /* Dynamic font size calculation */
 
   font-family: var(--primary-font);
