@@ -18,7 +18,7 @@
   --primary-font-size: calc(0.5rem + 2vmin);
   --accent-font-size: calc(0.8rem + 0.4vw);
   --hero-font-size: calc(
-    3.5rem + 4vw
+    6.5rem + 4vw
   ); /* Smaller base size and slower growth on small screens */
   --hero-p-font-size: calc(0.5rem + 0.5vw);
   --paragraph-font-size: calc(0.5rem + 0.3vmin);
@@ -85,6 +85,12 @@
   --custom-cursor-scroll-shadow: drop-shadow(0 0 25px var(--primary-color))
     drop-shadow(0 0 50px var(--primary-color))
     drop-shadow(0 0 75px var(--primary-color));
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --hero-font-size: calc(3rem + 4vw);
+  }
 }
 
 .light {

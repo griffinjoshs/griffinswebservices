@@ -13,7 +13,7 @@
 }
 
 #mediaThatChanges {
-  animation: rolldownGrow linear 2s;
+  animation: rolldownGrow linear 3s;
   animation-timeline: view();
   animation-fill-mode: forwards; /* Ensures the final state is maintained after the animation completes */
   background-color: red;
