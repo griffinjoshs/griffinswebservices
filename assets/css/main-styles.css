@@ -72,13 +72,13 @@ body {
 .hero-section {
   display: flex; /* Makes the section a flex container */
   flex-direction: column; /* Stacks the content vertically */
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   align-items: center;
   padding: 0;
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 200vh;
   margin-top: -12vh;
   /* flex-basis: va
   r(--section-flex-basis-15); */
@@ -93,6 +93,7 @@ body {
   padding: 0;
   position: relative;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .hero-section-content {
@@ -165,3 +166,71 @@ p {
   }
 }
 /* -------------------------------------------------------------------- */
+
+@keyframes expandEffect {
+  0%,
+  25% {
+    width: 240px;
+    height: 140px;
+    border-radius: 70px;
+    bottom: -30px;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+  50% {
+    width: 25%;
+    height: 25%;
+    border-radius: 70px;
+    bottom: -30px;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+  75% {
+    width: 40%;
+    height: 40%;
+    border-radius: 30px;
+    bottom: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+  85% {
+    width: 60%;
+    height: 60%;
+    border-radius: 30px;
+    bottom: 0;
+    opacity: 1;
+    transform: translate(-50%, -10%);
+  }
+  100% {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    border-radius: 0;
+    bottom: 0;
+    opacity: 1;
+    transform: translate(-50%, 0%);
+  }
+}
+
+.media-expand {
+  background: url("../image/meoncomp.jpg") no-repeat center center / cover;
+  position: fixed;
+  left: 50%;
+  animation: expandEffect linear both;
+  animation-timeline: view(block);
+  animation-range: cover 0% cover 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .media-section {
+    height: 100vh;
+    width: 100vw;
+    top: 40%; /* Position it halfway down the viewport */
+    left: 50%; /* Position it halfway across the viewport */
+  }
+
+  .media-section .media-expand {
+  }
+}

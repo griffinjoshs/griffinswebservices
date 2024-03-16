@@ -1,7 +1,7 @@
 // overlay-image.js
 document.addEventListener("DOMContentLoaded", function () {
     const overlayToggleCheckbox = document.getElementById("toggle-overlay-checkbox");
-    const heroSection = document.querySelector(".hero-section");
+    const heroSection = document.querySelector(".hero-wrap");
   
     // Load overlay preference from cookie
     const overlayPreference = getCookie("overlayPreference") === "true";

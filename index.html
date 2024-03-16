@@ -26,7 +26,7 @@
   </head>
   <style>
     /* This ensures .overlay only changes the background of .hero-section */
-    .hero-section.overlay {
+    .hero-wrap.overlay {
       background-position: center;
       background-size: cover;
       animation: overlay-fade-out ease-in-out;
@@ -149,7 +149,8 @@
             >
               See Our Projects
             </button>
-            <div class="space-between-btns"></div>
+            <div class="media-expand desktop"></div>
+            <!-- Visual effect div -->
             <button
               class="functioning-button light-orb-button onpage-contact-btn"
             >
@@ -158,10 +159,9 @@
           </div>
         </div>
       </section>
-
-      <!-- <section class="under-hero-section">
-        <div id="mediaThatChanges"></div>
-      </section> -->
+      <section class="media-section mobile">
+        <div class="media-expand"></div>
+      </section>
     </article>
     <script></script>
     <script src="./assets/js/scrolling-and-cursor/customCursor.js"></script>
