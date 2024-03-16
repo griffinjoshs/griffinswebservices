@@ -6,7 +6,7 @@
   --tertiary-color: #4d5688;
   --maintext-color: #f4f4f4;
   --lightened-primary: #c9d0fa;
-  --background-color: black;
+  --background-color: rgb(15, 15, 15);
   --everdark-color: black;
   --secondary-bg: #2a2a2ab1;
   --transparent-black: rgba(0, 0, 0, 0.85);
@@ -94,7 +94,7 @@
 }
 
 .light {
-  --background-color: white; /* Inverted from black */
+  --background-color: #e9e2db; /* Inverted from black */
   --maintext-color: black; /* Inverted from white */
   --secondary-bg: #d5d5d5; /* Lighter shade for the secondary background */
   --transparent-black: rgba(255, 255, 255, 0.85); /* Inverted transparency */
