@@ -3,9 +3,9 @@ function createDynamicCursor(
   targetElementSelector,
   styles = {},
   desktop = true,
-  mobile = true,
+  mobile = true, // Can now be true, false, or "semiTrue"
   overInputsAndButtons = false,
-  returnPosition = { enabled: true, x: "50%", y: "50%" } // Enable by default for centering
+  returnPosition = { enabled: true, x: "50%", y: "50%" }
 ) {
   document.addEventListener("DOMContentLoaded", () => {
     const targetElement = document.querySelector(targetElementSelector);
@@ -20,12 +20,10 @@ function createDynamicCursor(
     newCursor.classList.add("cursor-base");
     document.body.appendChild(newCursor);
 
-    // Set initial position and styles
     Object.keys(styles).forEach((property) => {
       newCursor.style[property] = styles[property];
     });
 
-    // Function to set cursor to its return position or center
     const setCursorToReturnPosition = () => {
       const posX = returnPosition.x.endsWith("%")
         ? (parseFloat(returnPosition.x) / 100) * window.innerWidth + "px"
@@ -36,28 +34,39 @@ function createDynamicCursor(
 
       newCursor.style.left = posX;
       newCursor.style.top = posY;
-      newCursor.style.transform = "translate(-50%, -50%)"; // Ensure centering
+      newCursor.style.transform = "translate(-50%, -50%)";
     };
 
-    // Initial positioning
     setCursorToReturnPosition();
 
     const updateCursorVisibility = (isVisible) => {
       const screenWidth = window.innerWidth;
-      const shouldDisplayBasedOnScreenSize =
-        (screenWidth > 768 && desktop) || (screenWidth <= 768 && mobile);
+      let shouldDisplay = false;
 
-      newCursor.style.display =
-        isVisible && shouldDisplayBasedOnScreenSize ? "block" : "none";
+      if (screenWidth > 768) {
+        shouldDisplay = desktop;
+      } else {
+        shouldDisplay = mobile === true || mobile === "semiTrue";
+      }
+
+      newCursor.style.display = isVisible && shouldDisplay ? "block" : "none";
       if (!isVisible && returnPosition.enabled) {
         setCursorToReturnPosition();
       }
     };
 
+    // Only allow movement if not in semiTrue mode or if the screenWidth is greater than 768
+    const allowMovement = () => {
+      const screenWidth = window.innerWidth;
+      return !(mobile === "semiTrue" && screenWidth <= 768);
+    };
+
     targetElement.addEventListener("mousemove", (e) => {
-      newCursor.style.left = `${e.clientX}px`;
-      newCursor.style.top = `${e.clientY}px`;
-      newCursor.style.transform = ""; // Remove the centering transform on move
+      if (allowMovement()) {
+        newCursor.style.left = `${e.clientX}px`;
+        newCursor.style.top = `${e.clientY}px`;
+        newCursor.style.transform = "";
+      }
       updateCursorVisibility(true);
     });
 
@@ -65,8 +74,8 @@ function createDynamicCursor(
       updateCursorVisibility(false)
     );
     window.addEventListener("resize", () => {
-      updateCursorVisibility(true); // Ensure visibility update on resize
-      setCursorToReturnPosition(); // Re-center on resize
+      updateCursorVisibility(true);
+      setCursorToReturnPosition();
     });
 
     if (!overInputsAndButtons) {
@@ -121,7 +130,7 @@ createDynamicCursor(
     zIndex: "99",
   },
   true,
-  true,
+  "semiTrue",
   false,
   { enabled: true, x: "50%", y: "40%" } // Enable returning to the center
 );
