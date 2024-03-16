@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./assets/css/dark-or-light-mode.css" />
     <link rel="stylesheet" href="./assets/css/main-styles.css" />
     <link rel="stylesheet" href="./assets/css/buttons.css" />
+    <link rel="stylesheet" href="./assets/css/mediaExpand.css" />
     <link rel="stylesheet" href="./assets/css/header.css" />
   </head>
   <style>
@@ -42,15 +43,17 @@
           ),
           url("./assets/image/meoncomp.jpg") no-repeat center center/cover;
       }
+
       5% {
         background: none;
       }
     }
   </style>
+
   <body>
     <canvas id="smokeCanvas"></canvas>
     <!-- <div id="smoky-trail"></div> -->
-    <div class="just-the-page">
+    <article class="just-the-page">
       <div id="top-bar-color-popup" class="hide">
         <div class="colors-wrap">
           <div id="color-button-container">
@@ -155,7 +158,11 @@
           </div>
         </div>
       </section>
-    </div>
+
+      <!-- <section class="under-hero-section">
+        <div id="mediaThatChanges"></div>
+      </section> -->
+    </article>
     <script></script>
     <script src="./assets/js/scrolling-and-cursor/customCursor.js"></script>
     <script src="./assets/js/scrolling-and-cursor/smokefollowingcursor.js"></script>

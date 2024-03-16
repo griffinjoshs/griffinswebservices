@@ -1,31 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-  />
-  <link rel="stylesheet" href="./assets/css/main-whole-site-styles/orbs-gradients.css" />
-  <link rel="stylesheet" href="./assets/css/main-whole-site-styles/variables-and-base-styles.css" />
-  <link rel="stylesheet" href="./assets/css/main-whole-site-styles/cursor.css" />
-  <link rel="stylesheet" href="./assets/css/imageVideoonHero.css" />
-  <link rel="stylesheet" href="./assets/css/main-whole-site-styles/dark-or-light-mode.css" />
-  <link rel="stylesheet" href="./assets/css/main-whole-site-styles/orbs-gradients.css" />
-  <link rel="stylesheet" href="./assets/css/main-whole-site-styles/buttons.css" />
-  <link rel="stylesheet" href="./assets/css/header.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll-Driven Animation</title>
+  <style>
+    #container {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-timeline: view();
+      position: relative;
+    }
+
+    #square {
+      background-color: teal;
+      width: 50px;
+      /* Initial width */
+      height: 50px;
+      /* Initial height */
+      /* Create View Timeline */
+      view-timeline-name: --revealing-image;
+      view-timeline-axis: block;
+
+      /* Attach animation, linked to the  View Timeline */
+      animation: linear reveal both;
+      animation-timeline: --revealing-image;
+
+      /* Tweak range when effect should run*/
+      animation-range: entry 25% cover 100%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /* Center the square initially */
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        clip-path: inset(45% 20% 45% 20%);
+      }
+
+      to {
+        opacity: 1;
+        clip-path: inset(0% 0% 0% 0%);
+      }
+    }
+  </style>
 </head>
+
 <body>
-    Nav Menu
+  <div id="container">
+    <div id="square"></div>
+    <div style="height: 200vh"></div>
+    <!-- Extra content to enable scrolling -->
+  </div>
 </body>
-<script src="./assets/js/scrolling-and-cursor/customCursor.js"></script>
-<script src="./assets/js/scrolling-and-cursor/smokefollowingcursor.js"></script>
-<script src="./assets/js/scrolling-and-cursor/buttonFollowingCursor.js"></script>
-<script src="./assets/js/animatingText.js"></script>
-<script src="./assets/js/header-changes/cookies.js"></script>
-<script src="./assets/js/header-changes/overlay-image.js"></script>
-<script src="./assets/js/header-changes/changePrimaryColor.js"></script>
-<script src="./assets/js/header-changes/dark-or-light-mode.js"></script>
+
 </html>

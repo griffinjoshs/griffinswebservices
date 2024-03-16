@@ -1,0 +1,39 @@
+/* underHero */
+.under-hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2000;
+  overflow: hidden; /* Prevents overflow from the animating child */
+}
+
+#mediaThatChanges {
+  animation: rolldownGrow linear 2s;
+  animation-timeline: view();
+  animation-fill-mode: forwards; /* Ensures the final state is maintained after the animation completes */
+  background-color: red;
+  width: 200px;
+  height: 100px;
+  border-radius: 50%; /* Starts as a circle */
+  transition: border-radius 2s; /* Smooth transition for the border-radius */
+}
+
+@keyframes rolldownGrow {
+  0% {
+    transform: translateY(100vh); /* Start from below the viewport */
+    width: 200px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  100% {
+    transform: translateY(0); /* End at its natural position */
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0%; /* End as a rectangle */
+  }
+}
