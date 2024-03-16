@@ -18,7 +18,7 @@ function createDynamicCursor(
 
     const newCursor = document.createElement("div");
     newCursor.classList.add("cursor-base");
-    newCursor.style.display = "none"; // Initialize with display: none;
+    newCursor.style.display = "block"; // Initialize with display: none;
 
     Object.keys(styles).forEach((property) => {
       newCursor.style[property] = styles[property];

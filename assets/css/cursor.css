@@ -44,7 +44,7 @@ input:hover .cursor {
 }
 
 #hero-section-cursor {
-  position: absolute;
+  /* position: absolute; */
   pointer-events: none; /* Ignore the cursor element in mouse events */
   z-index: 10000; /* Ensure it is above other items on the page */
   width: 20px; /* The size of the custom cursor */
