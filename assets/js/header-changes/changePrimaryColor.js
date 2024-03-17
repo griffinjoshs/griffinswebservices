@@ -147,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "#00F9FF", // Neon Cyan
     "#FF00F6", // Neon Magenta
     "#BFFF00", // Neon Lime
+    "#278476", // i-75 teal
   ];
 
   if (!colorList.includes(originalPrimaryColor)) {

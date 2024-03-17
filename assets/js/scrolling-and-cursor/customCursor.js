@@ -8,6 +8,8 @@ function createDynamicCursor(
   returnPosition = { enabled: true, x: "50%", y: "50%" }
 ) {
   document.addEventListener("DOMContentLoaded", () => {
+    let cursorIdIncrement = 0; // Initialize cursor ID increment
+
     const targetElement = document.querySelector(targetElementSelector);
     if (!targetElement) {
       console.warn(
@@ -120,17 +122,16 @@ createDynamicCursor(
 ); // Show on desktop only
 
 createDynamicCursor(
-  ".hero-section-content h1",
+  ".orb-cursor",
   {
     width: "calc(150px + 10vw)",
     height: "calc(150px + 10vw)",
     borderRadius: "50%",
     background:
       "radial-gradient(circle, var(--primary-color) 50%, rgba(0,0,0,0) 70%)",
-    zIndex: "99",
   },
   true,
   "semiTrue",
   false,
-  { enabled: true, x: "50%", y: "40%" } // Enable returning to the center
+  { enabled: true, x: "50%", y: "40%" }
 );

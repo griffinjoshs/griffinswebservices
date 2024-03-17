@@ -1,9 +1,10 @@
 .cursor-base {
-  position: absolute;
+  position: fixed;
   pointer-events: none;
   transform: translate(-50%, -50%);
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
+  z-index: 1; /* Behind the text elements */
 }
 
 @media screen and (max-width: 768px) {
@@ -19,7 +20,7 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none; /* Allow clicks to pass through */
-  z-index: 999; /* Adjust based on your page content */
+  z-index: 1;
 }
 
 /* Simple "smoke" animation */
@@ -42,31 +43,3 @@ button,
 input:hover .cursor {
   background: none;
 }
-
-#hero-section-cursor {
-  /* position: absolute; */
-  pointer-events: none; /* Ignore the cursor element in mouse events */
-  z-index: 10000; /* Ensure it is above other items on the page */
-  width: 20px; /* The size of the custom cursor */
-  height: 20px; /* The size of the custom cursor */
-  border-radius: 50%; /* Make it round */
-  background: #000; /* Example color */
-  transform: translate(-50%, -50%); /* Center it around the cursor */
-  display: none; /* Hide it by default */
-}
-
-/* Additional styles for the dynamic cursor
-.dynamic-gradient-cursor {
-  --cursor-size: 350px; 
-  width: var(--cursor-size);
-  height: var(--cursor-size);
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--primary-color) 50%, rgba(0,0,0,0) 70%);
-  z-index: 99;
-}
-
-@media (max-width: 768px) {
-  .dynamic-gradient-cursor {
-    --cursor-size: calc(350px / 2);
-  }
-} */

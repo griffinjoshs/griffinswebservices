@@ -78,8 +78,9 @@ body {
   padding: 0;
   position: relative;
   width: 100%;
-  min-height: 200vh;
+  min-height: 100vh;
   margin-top: -12vh;
+  scroll-behavior: smooth;
   /* flex-basis: va
   r(--section-flex-basis-15); */
 }
@@ -98,12 +99,12 @@ body {
 
 .hero-section-content {
   /* width: 80%; */
-  text-align: center;
+  /* text-align: center; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .hero-section-content h1 {
@@ -143,15 +144,32 @@ p {
   padding-bottom: 30px;
 }
 
+/* Ensures hero content is above the custom cursor and animations */
+.hero-wrap,
+.hero-section-content,
+.hero-section-content h1,
+.hero-section-content p,
+.orb-cursor {
+  position: relative;
+  z-index: 2; /* Adjust as needed to ensure it's above .cursor-base and .media-expand */
+}
+
+/* Assuming .cursor-base and .media-expand should be below hero content */
+.cursor-base,
+.media-expand {
+  z-index: 1;
+}
+
 @media screen and (min-width: 768px) {
   .hero-section-content p {
-    width: 50%;
+    width: 70%;
   }
 }
 
 @media screen and (max-width: 768px) {
   .hero-section-content p {
-    width: 80%;
+    width: 60%;
+    text-align: justify;
   }
 }
 
@@ -166,62 +184,104 @@ p {
     display: none;
   }
 }
-/* -------------------------------------------------------------------- */
 
 @keyframes expandEffect {
-  0%,
+  0% {
+    width: 240px;
+    height: 140px;
+    border-radius: 70px;
+    cursor: pointer;
+    background: url("../image/meoncomp.jpg") no-repeat center center / cover; /* Ensures image covers at the start */
+  }
+  15% {
+    width: 240px;
+    height: 140px;
+    border-radius: 70px;
+    cursor: auto;
+    top: 75%;
+    background: url("../image/meoncomp.jpg") no-repeat center center / cover; /* Ensures image covers at the start */
+  }
+  15% {
+    width: 240px;
+    height: 140px;
+    border-radius: 70px;
+    cursor: auto;
+    top: 65%;
+    background: url("../image/meoncomp.jpg") no-repeat center center / cover; /* Ensures image covers at the start */
+  }
   25% {
     width: 240px;
     height: 140px;
     border-radius: 70px;
-    bottom: -30px;
-    opacity: 1;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
+    cursor: auto;
+    top: 50%;
+    background: linear-gradient(
+        var(--transparent-black3),
+        var(--transparent-black3)
+      ),
+      url("../image/meoncomp.jpg") no-repeat center center / cover; /* Ensures image covers with overlay */
   }
-  50% {
-    width: 25%;
-    height: 25%;
-    border-radius: 70px;
-    bottom: -30px;
-    opacity: 1;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-  }
-  75% {
-    width: 40%;
-    height: 40%;
-    border-radius: 30px;
-    bottom: 0;
-    opacity: 1;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-  }
-  85% {
-    width: 60%;
-    height: 60%;
-    border-radius: 30px;
-    bottom: 0;
-    opacity: 1;
-    transform: translate(-50%, -10%);
-  }
-  100% {
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+  50%,
+  60% {
+    width: 50vw;
+    height: 50vh;
     border-radius: 0;
-    bottom: 0;
     opacity: 1;
-    transform: translate(-50%, 0%);
+    cursor: auto;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(
+        var(--transparent-black2),
+        var(--transparent-black2)
+      ),
+      url("../image/meoncomp.jpg") no-repeat center center / cover; /* Ensures image covers with overlay */
+    background-size: cover; /* This ensures that the image covers the element */
+  }
+  60%,
+  80% {
+    width: 75vw;
+    height: 75vh;
+    border-radius: 0;
+    opacity: 1;
+    cursor: auto;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(
+        var(--transparent-black1),
+        var(--transparent-black1)
+      ),
+      url("../image/meoncomp.jpg") no-repeat center center / cover; /* Ensures image covers with overlay */
+    background-size: cover; /* This ensures that the image covers the element */
+    background-size: cover; /* This ensures that the image covers the element */
+  }
+  80%,
+  100% {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    opacity: 1;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(
+        var(--transparent-black),
+        var(--transparent-black)
+      ),
+      url("../image/meoncomp.jpg") no-repeat center center / cover; /* Ensures image covers with overlay */
+    background-size: cover; /* This ensures that the image covers the element */
+    background-size: cover; /* This ensures that the image covers the element */
   }
 }
 
 .media-expand {
-  background: url("../image/meoncomp.jpg") no-repeat center center / cover;
   position: fixed;
   left: 50%;
-  animation: expandEffect linear both;
-  animation-timeline: view(block);
+  width: 240px;
+  height: 140px;
+  border-radius: 70px;
+  animation: expandEffect linear both 0.1s;
+  animation-timeline: scroll();
   animation-range: cover 0% cover 100%;
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 768px) {
@@ -234,4 +294,25 @@ p {
 
   .media-section .media-expand {
   }
+}
+
+@media screen and (max-width: 768px) {
+  .media-expand {
+    width: 200px; /* Adjust based on mobile design */
+    height: 110px; /* Adjust based on mobile design */
+    border-radius: 55px; /* Adjust to maintain aspect ratio */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Ensure it does not block interaction */
+    transition: opacity 0.5s ease, visibility 0.5s;
+  }
+
+  .media-section {
+    height: 100vh;
+    width: 100vw;
+    top: 40%; /* Adjust based on your design needs */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+  }
+
+  /* Additional styles for the animation and visibility toggle might go here */
 }

@@ -1,3 +1,4 @@
+// animatingText.js
 function prepareAndAnimateText(
   selector,
   initialColor,
@@ -77,7 +78,7 @@ prepareAndAnimateText(
       true, // desktop
       true, // mobile
       () => {
-        console.log("Animation completed on desktop!");
+        // console.log("Animation completed on desktop!");
       }
     );
   }
@@ -92,6 +93,6 @@ prepareAndAnimateText(
   true, // desktop
   true, // mobile
   () => {
-    console.log("Animation completed on both mobile and desktop!");
+    // console.log("Animation completed on both mobile and desktop!");
   }
 );

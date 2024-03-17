@@ -1,168 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Griffin's Web Services</title>
+    <!-- Tab Icon -->
+    <link
+      rel="icon"
+      href="./assets/image/mylogorightbluedslittle.png"
+      type="image/png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/variables-and-base-styles.css" />
+    <link rel="stylesheet" href="./assets/css/orbs-gradients.css" />
+    <link rel="stylesheet" href="./assets/css/cursor.css" />
+    <link rel="stylesheet" href="./assets/css/imageVideoonHero.css" />
+    <link rel="stylesheet" href="./assets/css/dark-or-light-mode.css" />
+    <link rel="stylesheet" href="./assets/css/main-styles.css" />
+    <link rel="stylesheet" href="./assets/css/buttons.css" />
+    <link rel="stylesheet" href="./assets/css/animations.css" />
+    <link rel="stylesheet" href="./assets/css/header.css" />
+    <link rel="stylesheet" href="./assets/css/mediaExpand.css" />
+  </head>
+  <style></style>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Griffin's Web Services</title>
-  <!-- Tab Icon -->
-  <link rel="icon" href="./assets/image/mylogorightbluedslittle.png" type="image/png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-  <link rel="stylesheet" href="./assets/css/variables-and-base-styles.css" />
-  <link rel="stylesheet" href="./assets/css/orbs-gradients.css" />
-  <link rel="stylesheet" href="./assets/css/cursor.css" />
-  <link rel="stylesheet" href="./assets/css/imageVideoonHero.css" />
-  <link rel="stylesheet" href="./assets/css/dark-or-light-mode.css" />
-  <link rel="stylesheet" href="./assets/css/main-styles.css" />
-  <link rel="stylesheet" href="./assets/css/buttons.css" />
-  <link rel="stylesheet" href="./assets/css/header.css" />
-  <link rel="stylesheet" href="./assets/css/mediaExpand.css" />
-</head>
-<style>
-  /* This ensures .overlay only changes the background of .hero-section */
-  .hero-wrap.overlay {
-    background-position: center;
-    background-size: cover;
-    animation: overlay-fade-out ease-in-out;
-    animation-timeline: scroll();
-    width: 100%;
-  }
-
-  @keyframes overlay-fade-out {
-    0% {
-      background: linear-gradient(var(--transparent-black),
-          /* Starts with a semi-transparent black */
-          var(--transparent-black)
-          /* Ends with the same semi-transparent black */
-        ),
-        url("./assets/image/meoncomp.jpg") no-repeat center center/cover;
-    }
-
-    5% {
-      background: none;
-    }
-  }
-</style>
-
-<body>
-  <canvas id="smokeCanvas"></canvas>
-  <!-- <div id="smoky-trail"></div> -->
-  <article class="just-the-page">
-    <div id="top-bar-color-popup" class="hide">
-      <div class="colors-wrap">
-        <div id="color-button-container">
-          <!-- Color options will be dynamically inserted here -->
-        </div>
-        <button id="reset-color-button" class="reset-button icon-button">
-          <i class="fas fa-redo" aria-hidden="true" style="color: var(--maintext-color)"></i>
-        </button>
-      </div>
-    </div>
-    <!-- Add the reset button at the end -->
-
-    <!-- header -->
-    <nav class="header main-container-width">
-      <div class="header-area header-area-left logo">
-        <img src="./assets/image/mylogoright.png" width="70" height="70" alt="Logo" />
-      </div>
-      <div class="header-area header-icon-area">
-        <!-- Checkbox hidden but placed before the label -->
-        <input type="checkbox" id="toggle-overlay-checkbox" hidden />
-        <label for="toggle-overlay-checkbox"
-          class="header-functional-icon normal-circle-button normal-circle-button-check normal-circle-button-small">
-          <i class="fa fa-image"></i>
-        </label>
-
-        <!-- Toggle Theme Checkbox and Label with Icons -->
-        <input type="checkbox" id="toggle-checkbox" hidden />
-        <!-- Label for the theme toggle -->
-        <label class="header-functional-icon normal-circle-button normal-circle-button-check normal-circle-button-small"
-          for="toggle-checkbox">
-          <i class="far fa-moon" id="icon-moon"></i>
-          <!-- Moon Icon -->
-          <i class="far fa-sun" style="display: none" id="icon-sun"></i>
-          <!-- Sun Icon -->
-        </label>
-
-        <!-- Hidden Checkbox for the color change toggle -->
-        <input type="checkbox" id="color-change-checkbox" hidden />
-        <label
-          class="header-functional-icon normal-circle-button normal-circle-button-check normal-circle-button-small color-change-check"
-          for="color-change-checkbox">
-          <i class="fa fa-tint"></i>
-        </label>
-      </div>
-      <div class="header-area menu header-area-right">
-        <!-- Invisible Checkbox -->
-        <input type="checkbox" id="hamburger-toggle" class="hamburger-toggle" hidden />
-        <!-- Hamburger Menu as a Label for the Checkbox -->
-        <label for="hamburger-toggle" class="hamburger-menu">
-          <span class="line top"></span>
-          <span class="line middle"></span>
-          <span class="line bottom"></span>
-        </label>
-      </div>
-    </nav>
-    <!-- hero-section -->
-    <section class="hero-section main-container-width" id="hero-section">
-      <div class="hero-wrap">
-        <div class="hero-section-space"></div>
-        <div class="hero-section-content">
-          <h1 class="animatedText">
-            <span class="emphasizeh1">Griffin's:</span><br>
-            Web Services
-          </h1>
-          <p class="animatedText">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptates, quos, quas, quod quibusdam quia quae quidem quae
-            quidem qu
-          </p>
-        </div>
-        <div class="hero-button-section main-container-width">
-          <button class="functioning-button light-orb-button onpage-projects-btn">
-            See Our Projects
-          </button>
-          <a href="#media-ani-end" class="scroll-to-target">
-            <div class="media-expand desktop"></div>
-          </a>
-          <!-- Visual effect div -->
-          <button class="functioning-button light-orb-button onpage-contact-btn">
-            Contact Me
+  <body>
+    <canvas id="smokeCanvas"></canvas>
+    <!-- <div id="smoky-trail"></div> -->
+    <article class="just-the-page">
+      <div id="top-bar-color-popup" class="hide">
+        <div class="colors-wrap">
+          <div id="color-button-container">
+            <!-- Color options will be dynamically inserted here -->
+          </div>
+          <button id="reset-color-button" class="reset-button icon-button">
+            <i
+              class="fas fa-redo"
+              aria-hidden="true"
+              style="color: var(--maintext-color)"
+            ></i>
           </button>
         </div>
-        <div id="media-ani-end"></div>
       </div>
-    </section>
-    <!-- <section class="media-section mobile">
+      <!-- Add the reset button at the end -->
+
+      <!-- header -->
+      <nav class="header main-container-width tilt-in-top-1">
+        <div class="header-area header-area-left logo">
+          <img
+            src="./assets/image/mylogoright.png"
+            width="70"
+            height="70"
+            alt="Logo"
+          />
+        </div>
+        <div class="header-area header-icon-area">
+          <!-- Checkbox hidden but placed before the label -->
+
+          <!-- Toggle Theme Checkbox and Label with Icons -->
+          <input type="checkbox" id="toggle-checkbox" hidden />
+          <!-- Label for the theme toggle -->
+          <label
+            class="header-functional-icon normal-circle-button normal-circle-button-check normal-circle-button-small"
+            for="toggle-checkbox"
+          >
+            <i class="far fa-moon" id="icon-moon"></i>
+            <!-- Moon Icon -->
+            <i class="far fa-sun" style="display: none" id="icon-sun"></i>
+            <!-- Sun Icon -->
+          </label>
+
+          <!-- Hidden Checkbox for the color change toggle -->
+          <input type="checkbox" id="color-change-checkbox" hidden />
+          <label
+            class="header-functional-icon normal-circle-button normal-circle-button-check normal-circle-button-small color-change-check"
+            for="color-change-checkbox"
+          >
+            <i class="fa fa-tint"></i>
+          </label>
+        </div>
+        <div class="header-area menu header-area-right">
+          <!-- Invisible Checkbox -->
+          <input
+            type="checkbox"
+            id="hamburger-toggle"
+            class="hamburger-toggle"
+            hidden
+          />
+          <!-- Hamburger Menu as a Label for the Checkbox -->
+          <label for="hamburger-toggle" class="hamburger-menu">
+            <span class="line top"></span>
+            <span class="line middle"></span>
+            <span class="line bottom"></span>
+          </label>
+        </div>
+      </nav>
+      <!-- hero-section -->
+      <section class="hero-section main-container-width" id="hero-section">
+        <div class="hero-wrap">
+          <div class="hero-section-space"></div>
+          <div class="hero-section-content">
+            <h1 class="animatedText tracking-in-expand orb-cursor">
+              <span class="emphasizeh1">Griffin's:</span><br />
+              Web Services
+            </h1>
+            <p class="animatedText">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              voluptates, quos, quas, quod quibusdam quia quae quidem quae
+              quidem qu
+            </p>
+          </div>
+          <div class="hero-button-section main-container-width">
+            <button
+              class="functioning-button light-orb-button onpage-projects-btn slide-in-bottom"
+            >
+              See Our Projects
+            </button>
+            <a class="scroll-to-target animate-trigger">
+              <div class="media-expand"></div>
+            </a>
+            <!-- Visual effect div -->
+            <button
+              class="functioning-button light-orb-button onpage-contact-btn slide-in-bottom"
+            >
+              Contact Me
+            </button>
+          </div>
+          <div id="media-ani-end"></div>
+        </div>
+      </section>
+
+      <section
+        class="big-section main-container-width"
+        style="height: 100vh"
+      ></section>
+      <!-- <section class="media-section mobile">
         <div class="media-expand"></div>
       </section> -->
-    <section class="about-section main-container-width">
-      <div class="about-section-content">
-        <h2 class="animatedText">About Us</h2>
-        <p class="animatedText">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          voluptates, quos, quas, quod quibusdam quia quae quidem quae quidem
-          qu
-        </p>
-      </div>
-  </article>
-  <script>
-    document.querySelector('.scroll-to-target').addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
+    </article>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mediaExpandElement = document.querySelector(".media-expand");
+        const animationTriggerLink = document.querySelector(".animate-trigger");
+        const targetElement = document.getElementById("media-ani-end");
+
+        // Function to add the fixed-position class
+        function immobilizePageElements() {
+          document.querySelector(".hero-wrap").classList.add("fixed-position");
+          console.log("Page elements immobilized.");
+        }
+
+        // Function to remove the fixed-position class
+        function mobilizePageElements() {
+          document
+            .querySelector(".hero-wrap")
+            .classList.remove("fixed-position");
+          console.log("Page elements mobilized.");
+        }
+
+        // Function to start the animation
+        function startAnimation() {
+          mediaExpandElement.classList.add("start-animation");
+          console.log("Animation started.");
+        }
+
+        // Function to scroll to the target element smoothly
+        function scrollToTarget() {
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: "smooth",
+            });
+          }
+        }
+
+        // Event listener for the animation trigger link
+        if (animationTriggerLink) {
+          animationTriggerLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            immobilizePageElements();
+            startAnimation();
+            scrollToTarget();
+          });
+        }
+
+        // Event listeners for the media expand element's animation
+        if (mediaExpandElement) {
+          mediaExpandElement.addEventListener(
+            "animationstart",
+            immobilizePageElements
+          );
+          mediaExpandElement.addEventListener("animationend", function () {
+            mobilizePageElements();
+            // Additional logic to handle after the animation ends can go here
+          });
+          console.log("Event listeners attached to mediaExpandElement.");
+        } else {
+          console.log("mediaExpandElement not found.");
+        }
       });
-    });
+      function handleScrollAndResize() {
+  var heroSectionHeight = document.querySelector(".hero-section").offsetHeight;
+  var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  var triggerPoint = heroSectionHeight / 2; // Halfway through the hero section
+  var mediaExpand = document.querySelector(".media-expand");
 
-  </script>
-  <script src="./assets/js/scrolling-and-cursor/customCursor.js"></script>
-  <script src="./assets/js/scrolling-and-cursor/smokefollowingcursor.js"></script>
-  <script src="./assets/js/scrolling-and-cursor/buttonFollowingCursor.js"></script>
-  <script src="./assets/js/animatingText.js"></script>
-  <script src="./assets/js/header-changes/cookies.js"></script>
-  <script src="./assets/js/header-changes/overlay-image.js"></script>
-  <script src="./assets/js/header-changes/changePrimaryColor.js"></script>
-  <script src="./assets/js/header-changes/dark-or-light-mode.js"></script>
-</body>
+  // If on a mobile device, based on the width
+  if (window.innerWidth < 768) {
+    if (scrollPosition >= triggerPoint) {
+      mediaExpand.style.opacity = "1";
+      mediaExpand.style.visibility = "visible";
+    } else {
+      mediaExpand.style.opacity = "0";
+      mediaExpand.style.visibility = "hidden";
+    }
+  } else { // For larger screens
+    // Reset the styles for `.media-expand` element
+    mediaExpand.style.opacity = ""; // Or set to the default value for larger screens if it's not 1
+    mediaExpand.style.visibility = ""; // Or set to the default value for larger screens if it's not 'visible'
+  }
+}
 
+// Listen for scroll events
+document.addEventListener("scroll", handleScrollAndResize);
+
+// Listen for resize events
+window.addEventListener("resize", handleScrollAndResize);
+
+    </script>
+    <script src="./assets/js/scrolling-and-cursor/customCursor.js"></script>
+    <script src="./assets/js/scrolling-and-cursor/smokefollowingcursor.js"></script>
+    <script src="./assets/js/scrolling-and-cursor/buttonFollowingCursor.js"></script>
+    <script src="./assets/js/animatingText.js"></script>
+    <script src="./assets/js/header-changes/cookies.js"></script>
+    <script src="./assets/js/header-changes/overlay-image.js"></script>
+    <script src="./assets/js/header-changes/changePrimaryColor.js"></script>
+    <script src="./assets/js/header-changes/dark-or-light-mode.js"></script>
+  </body>
 </html>
